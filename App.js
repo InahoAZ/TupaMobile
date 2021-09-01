@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import Counter from './components/Counter';
 
-import {SideMenuNav} from './navigation/Menu'
+import {AppNavigator} from './navigation/Menu'
 
 //UI
 import * as eva from '@eva-design/eva';
@@ -20,7 +20,7 @@ export default function App() {
   return (    
     <ApplicationProvider {...eva} theme={eva.light}>
       <IconRegistry icons={EvaIconsPack} />
-      <SideMenuNav></SideMenuNav>
+      <AppNavigator></AppNavigator>
     </ApplicationProvider>
     
   );

@@ -18,7 +18,7 @@ export const LoginScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TopNavigation title='MyApp' alignment='center' accessoryLeft={BackAction}/>
+      <TopNavigation title='Iniciar Sesion' alignment='center' accessoryLeft={BackAction}/>
       <Divider/>
       <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text category='h1'>DETAILS</Text>
@@ -30,6 +30,5 @@ export const LoginScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: StatusBar.currentHeight
     }
 });

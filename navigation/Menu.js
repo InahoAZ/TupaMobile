@@ -1,25 +1,27 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 
 //Screens
-import {HomeScreen} from '../screens/HomeScreeen'
+import {HomeScreen} from '../screens/HomeScreen'
 import {LoginScreen} from '../screens/LoginScreen'
+import {VisitantesScreen} from '../screens/VisitantesScreen'
 
-import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Drawer = createDrawerNavigator();
 
-const SideMenu = () => {
-    return (
-      <Drawer.Navigator>
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Login" component={LoginScreen} />
-      </Drawer.Navigator>
-    );
-  }
-
-  export const AppNavigator = () => (
-    <NavigationContainer>
-      <SideMenuNav/>
-    </NavigationContainer>
+const SideMenuNav = () => {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="Login" component={LoginScreen} />
+      <Drawer.Screen name="Visitantes" component={VisitantesScreen} />
+    </Drawer.Navigator>
   );
+}
+
+export const AppNavigator = () => (
+  <NavigationContainer>
+    <SideMenuNav/>
+  </NavigationContainer>
+);
