@@ -3,22 +3,21 @@ import React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import Counter from './components/Counter';
 
-import {AppNavigator} from './navigation/Menu'
+import {AppNavigator} from './navigation/AppNavigator'
 
 //UI
+import { default as theme } from './custom-theme.json';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
 
 export default function App() {
   return (    
-    <ApplicationProvider {...eva} theme={eva.light}>
+    <ApplicationProvider {...eva} theme={{ ...eva.dark, ...theme }}>
       <IconRegistry icons={EvaIconsPack} />
       <AppNavigator></AppNavigator>
     </ApplicationProvider>
