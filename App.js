@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import Counter from './components/Counter';
 
-import {AppNavigator} from './navigation/AppNavigator'
+import {RootNavigator} from './navigation/AppNavigator'
 
 //UI
 import { default as theme } from './custom-theme.json';
@@ -19,7 +19,7 @@ export default function App() {
   return (    
     <ApplicationProvider {...eva} theme={{ ...eva.dark, ...theme }}>
       <IconRegistry icons={EvaIconsPack} />
-      <AppNavigator></AppNavigator>
+      <RootNavigator></RootNavigator>
     </ApplicationProvider>
     
   );

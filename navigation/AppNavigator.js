@@ -14,23 +14,41 @@ import {LoadingScreen} from '../screens/LoadingScreen'
 import {HomeNavigator} from './HomeNavigator'
 
 
-const MainNavigator = createDrawerNavigator();
+const MainNavigator = createStackNavigator();
+const AppNavigator = createDrawerNavigator();
 
 
-
-const SideMenuNav = () => {
+//Se usa este stack si no esta logeado
+const AuthNav = () => {
   return (
     <MainNavigator.Navigator>
-      <MainNavigator.Screen name="Home" component={HomeScreen} />
-      <MainNavigator.Screen name="Visitantes" component={VisitantesScreen} options={{ headerShown: false }} />
-      <MainNavigator.Screen name="Profile" component={ProfileScreen} />
+      <MainNavigator.Screen name="Login" component={LoginScreen}/>
     </MainNavigator.Navigator>
+  ) 
+}
+
+//Menu lateral
+const SideMenuNav = () => {
+  const isSignedIn = true;
+  return (
+      
+      <AppNavigator.Navigator>
+          <AppNavigator.Screen name="Home" component={HomeScreen} />
+          <AppNavigator.Screen name="Visitantes" component={VisitantesScreen} options={{ headerShown: false }} />
+          <AppNavigator.Screen name="Profile" component={ProfileScreen} />
+          
+      </AppNavigator.Navigator>
+      
   );
 }
 
-export const AppNavigator = () => (
+//Pseudo login
+const authData = true;
+
+export const RootNavigator = () => (
+  
   <NavigationContainer>
-    <SideMenuNav/>
+    {authData ? <SideMenuNav/> : <AuthNav />}    
   </NavigationContainer>
 );
 
